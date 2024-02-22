@@ -11,9 +11,15 @@
 # It should return a named list with two elements: mean and median.
 
 mean_median <- function(x) {
-  if(class(x) != "numeric") {
+  # if(class(x) != "numeric") {
+  #   stop("Please enter a numeric vector")
+  # }
+  ## After testing the above error message, found it returns error for x of class
+  ## integer. Can add this condition to if() or use is.numeric: 
+  if(!is.numeric(x)) {
     stop("Please enter a numeric vector")
   }
+  
   len <- length(x)
   out <- list(mean = numeric(), median = numeric())
   out$mean <- sum(x)/len
